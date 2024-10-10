@@ -31,13 +31,17 @@
 <script>
     let socket = io();
 
+    socket.on('connect', () => {
+        console.log('Connected to Socket.IO server');
+    });
+
     let form = document.getElementById('form');
     let myname = document.getElementById('myname');
     let message = document.getElementById('message');
     let messageArea = document.getElementById("messageArea");
 
     form.addEventListener("submit", (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent page reload
 
         // Check if both name and message are provided
         if (myname.value && message.value) {
