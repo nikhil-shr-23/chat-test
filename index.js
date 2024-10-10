@@ -8,6 +8,11 @@ const server = http.createServer(app);
 const io = new Server(server);
 const port = process.env.PORT || 5000; // Use the default port
 
+// Serve the Socket.IO client library
+app.get('/socket.io/socket.io.js', (req, res) => {
+    res.sendFile(require.resolve('socket.io/client-dist/socket.io.js'));
+});
+
 // Use CORS middleware
 app.use(cors({
     origin: 'https://conshachat.vercel.app/', // Replace with your client URL
