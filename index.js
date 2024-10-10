@@ -29,6 +29,13 @@ io.on('connection', (socket) => {
     });
 });
 
+// Added code block to apply changes from colleague's message
+let socket = io();
+
+socket.on('connect', () => {
+    console.log('Connected to Socket.IO server');
+});
+
 server.listen(port, () => {
     console.log(`Server is listening at the port: ${port}`);
 });
