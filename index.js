@@ -4,7 +4,7 @@ const { Server } = require('socket.io');
 const http = require('http');
 const server = http.createServer(app);
 const io = new Server(server);
-const port = 5001; // Changed from 5000 to 5001
+const port = process.env.PORT || 5000; // Use the default port
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
